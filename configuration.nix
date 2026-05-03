@@ -118,7 +118,6 @@
     goverlay
     mangohud
     brave
-    protonup-qt
     neofetch
     ciscoPacketTracer8
     git
