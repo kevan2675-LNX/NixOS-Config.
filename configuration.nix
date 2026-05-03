@@ -21,6 +21,7 @@
       extraPackages = with pkgs; [
          mesa
          vulkan-loader
+         intel-media-driver 
   ];
       extraPackages32 = with pkgs.pkgsi686Linux; [
          mesa
@@ -55,6 +56,11 @@
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
+  services.displayManager.sddm.wayland.enable = true;   #Kunci SDDM Wayland
+
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1"; #Memaksa aplikasi Electron (seperti Discord/VSCode) untuk jalan di Wayland
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
